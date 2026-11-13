@@ -1,0 +1,51 @@
+{
+  "id": "lab-000-orientation",
+  "title": "Step 0. 식당 비유로 이해하는 K8s & 내 첫 지휘봉(kubectl) 잡기",
+  "level": 1,
+  "estimated_minutes": 10,
+  "prerequisites": [],
+  "concepts": ["concept-container", "concept-k8s", "concept-kubectl"],
+  "typing_drills": [
+    {
+      "id": "drill-000-1",
+      "prompt": "1단계 워밍업: 쿠버네티스 무전기 이름인 '큐브컨트롤' 7글자만 단독으로 타이핑해 보세요.",
+      "target_text": "kubectl",
+      "anatomy": [
+        { "part": "kube", "meaning": "Kubernetes(쿠버네티스)의 앞 4글자", "pronunciation_tip": "큐브" },
+        { "part": "ctl", "meaning": "Control(조종하다)의 약자", "pronunciation_tip": "컨트롤" }
+      ],
+      "min_typing_ms": 800,
+      "common_typos": [
+        { "wrong": "kubctl", "feedback": "앗! 'kube'에서 'e'가 빠졌어요! k-u-b-e + c-t-l 입니다." },
+        { "wrong": "kubeclt", "feedback": "끝 글자가 'clt'로 바뀌었어요! Control의 약자니까 c-t-l 순서로 쳐보세요." },
+        { "wrong": "kubectr", "feedback": "마지막 글자는 r이 아니라 l(엘)이에요! ConTroL -> ctl!" }
+      ]
+    },
+    {
+      "id": "drill-000-2",
+      "prompt": "2단계 실전: 내 컴퓨터에 설치된 무전기(클라이언트)의 버전을 확인하는 명령어를 타이핑해 보세요.",
+      "target_text": "kubectl version --client",
+      "anatomy": [
+        { "part": "kubectl", "meaning": "지배인 무전기야!", "pronunciation_tip": "큐브컨트롤" },
+        { "part": "version", "meaning": "버전 정보를 알려줘", "pronunciation_tip": "버전" },
+        { "part": "--client", "meaning": "서버 말고 내 컴퓨터에 깔린 무전기(클라이언트) 버전만!", "pronunciation_tip": "대시대시 클라이언트" }
+      ],
+      "min_typing_ms": 2000,
+      "common_typos": [
+        { "wrong": "kubectl version -client", "feedback": "옵션 이름(client)이 긴 단어일 때는 빼기 기호(-)를 두 번 연속(--) 쳐야 해요! (--client)" },
+        { "wrong": "kubectl version --cleint", "feedback": "'client' 스펠링에서 i와 e의 순서가 바뀌었어요! c-l-i-e-n-t" },
+        { "wrong": "kubectl version", "feedback": "거의 다 왔어요! 뒤에 한 칸 띄고 내 무전기만 확인하는 옵션인 '--client'까지 붙여주세요." }
+      ]
+    }
+  ],
+  "missions": [
+    {
+      "step": 1,
+      "goal": "터미널에서 직접 타이핑 코치(coach.ps1)를 통과하거나, kubectl version --client 명령어를 쳐서 버전 출력을 확인한다.",
+      "hint_lv1": "무전기 이름(7글자) + 버전(7글자) + 클라이언트 옵션(--포함 8글자)",
+      "hint_lv2": "k-u-b-e-c-t-l [띄고] v-e-r-s-i-o-n [띄고] --c-l-i-e-n-t",
+      "answer_command": "kubectl version --client",
+      "verify_command": "kubectl version --client"
+    }
+  ]
+}
