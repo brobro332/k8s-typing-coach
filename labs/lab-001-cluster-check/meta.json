@@ -1,0 +1,64 @@
+{
+  "id": "lab-001-cluster-check",
+  "title": "Step 1. 내 컴퓨터 속 미니 주방(클러스터와 노드) 둘러보기",
+  "level": 1,
+  "estimated_minutes": 10,
+  "prerequisites": ["lab-000-orientation"],
+  "concepts": ["concept-cluster", "concept-node", "cmd-kubectl-get"],
+  "typing_drills": [
+    {
+      "id": "drill-001-1",
+      "prompt": "1단계: 우리 식당 전체(클러스터)의 상황실 주소와 작동 정보를 확인하는 명령어를 타이핑해 보세요.",
+      "target_text": "kubectl cluster-info",
+      "anatomy": [
+        { "part": "kubectl", "meaning": "지배인 무전기야!", "pronunciation_tip": "큐브컨트롤" },
+        { "part": "cluster-info", "meaning": "클러스터(식당 전체) 정보(info)를 알려줘! (가운데 빼기 기호 하나로 연결)", "pronunciation_tip": "클러스터-인포" }
+      ],
+      "min_typing_ms": 1500,
+      "common_typos": [
+        { "wrong": "kubectl cluster info", "feedback": "앗! cluster와 info 사이는 띄어쓰기가 아니라 빼기 기호(-) 하나로 이어져 있어요! (cluster-info)" },
+        { "wrong": "kubectl cluster--info", "feedback": "가운데 빼기 기호는 한 번만(-) 치면 됩니다! cluster-info" }
+      ]
+    },
+    {
+      "id": "drill-001-2",
+      "prompt": "2단계 [핵심]: 우리 식당에 컴퓨터(노드)가 몇 대 있고 준비(Ready) 상태인지 목록을 가져오는 명령어를 쳐보세요.",
+      "target_text": "kubectl get nodes",
+      "anatomy": [
+        { "part": "kubectl", "meaning": "지배인 무전기야!", "pronunciation_tip": "큐브컨트롤" },
+        { "part": "get", "meaning": "목록을 가져와라! (가장 많이 쓰는 핵심 동사)", "pronunciation_tip": "겟" },
+        { "part": "nodes", "meaning": "노드(주방 컴퓨터)들을!", "pronunciation_tip": "노즈 (또는 노드스)" }
+      ],
+      "min_typing_ms": 1200,
+      "common_typos": [
+        { "wrong": "kubectl get node", "feedback": "참고로 'node'(단수)라고 쳐도 쿠버네티스가 찰떡같이 알아듣지만, 이번 타자 연습에서는 복수형인 'nodes'로 끝에 s까지 붙여볼까요?" },
+        { "wrong": "kubectl nodes", "feedback": "가운데 동사 'get'(가져와라)이 빠졌어요! kubectl + get + nodes 어순을 기억하세요!" }
+      ]
+    },
+    {
+      "id": "drill-001-3",
+      "prompt": "3단계 [확장]: 방금 본 노드 목록을 IP 주소와 OS 정보까지 '넓게(wide)' 펼쳐서 보는 명령어를 쳐보세요.",
+      "target_text": "kubectl get nodes -o wide",
+      "anatomy": [
+        { "part": "kubectl get nodes", "meaning": "지배인아, 노드 목록을 가져오는데...", "pronunciation_tip": "큐브컨트롤 겟 노즈" },
+        { "part": "-o", "meaning": "출력 형식(Output) 옵션은...", "pronunciation_tip": "대시 오" },
+        { "part": "wide", "meaning": "넓고 자세하게(wide) 펼쳐서 보여줘!", "pronunciation_tip": "와이드" }
+      ],
+      "min_typing_ms": 2000,
+      "common_typos": [
+        { "wrong": "kubectl get nodes --o wide", "feedback": "알파벳 한 글자짜리 옵션('o') 앞에는 빼기 기호를 딱 한 번만(-o) 붙입니다!" },
+        { "wrong": "kubectl get nodes -owide", "feedback": "-o 와 wide 사이에 스페이스바(띄어쓰기)를 한 번 넣어주세요! (-o wide)" }
+      ]
+    }
+  ],
+  "missions": [
+    {
+      "step": 1,
+      "goal": "kubectl get nodes -o wide 명령어를 실행하여 내 노드의 STATUS가 Ready인지 확인한다.",
+      "hint_lv1": "무전기 + 가져와라 + 노드들 + 출력옵션(-o) + 넓게(wide)",
+      "hint_lv2": "kubectl get nodes -o wide",
+      "answer_command": "kubectl get nodes -o wide",
+      "verify_command": "kubectl get nodes"
+    }
+  ]
+}
