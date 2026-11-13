@@ -1,0 +1,78 @@
+{
+  "id": "lab-002-first-pod",
+  "title": "Step 2. 첫 번째 1인용 주방 방(Pod) 만들고 요리사(nginx) 넣기",
+  "level": 1,
+  "estimated_minutes": 15,
+  "prerequisites": ["lab-001-cluster-check"],
+  "concepts": ["concept-pod", "concept-image", "cmd-kubectl-run"],
+  "typing_drills": [
+    {
+      "id": "drill-002-1",
+      "prompt": "1단계 [빈방 확인]: 먼저 현재 우리 주방에 만들어져 있는 파드(pods) 목록이 있는지 확인해 보세요.",
+      "target_text": "kubectl get pods",
+      "anatomy": [
+        { "part": "kubectl", "meaning": "지배인 무전기야!", "pronunciation_tip": "큐브컨트롤" },
+        { "part": "get", "meaning": "목록을 가져와라!", "pronunciation_tip": "겟" },
+        { "part": "pods", "meaning": "파드(1인용 주방 방)들을!", "pronunciation_tip": "파즈 (또는 파드스)" }
+      ],
+      "min_typing_ms": 1200,
+      "common_typos": [
+        { "wrong": "kubectl get pod", "feedback": "pod(단수)도 작동하지만, 이번 근육 기억 훈련에서는 복수형인 'pods'(끝에 s)로 쳐볼까요?" },
+        { "wrong": "kubectl pods", "feedback": "가운데 동사 'get'(가져와라)이 빠졌어요! kubectl get pods" }
+      ]
+    },
+    {
+      "id": "drill-002-2",
+      "prompt": "2단계 [첫 파드 생성 ⭐]: 'my-first-pod'라는 이름의 방을 만들고, 그 안에 'nginx' 요리사 이미지를 넣어 실행(run)해 보세요!",
+      "target_text": "kubectl run my-first-pod --image=nginx",
+      "anatomy": [
+        { "part": "kubectl", "meaning": "지배인 무전기야!", "pronunciation_tip": "큐브컨트롤" },
+        { "part": "run", "meaning": "새 파드를 만들어서 돌려라!", "pronunciation_tip": "런" },
+        { "part": "my-first-pod", "meaning": "방 이름은 'my-first-pod'로 짓고!", "pronunciation_tip": "마이-퍼스트-파드" },
+        { "part": "--image=nginx", "meaning": "설계도 이미지(--image)는 엔진엑스(=nginx)를 써라! (띄어쓰기 없이 =으로 연결)", "pronunciation_tip": "대시대시 이미지 이퀄 엔진엑스" }
+      ],
+      "min_typing_ms": 3000,
+      "common_typos": [
+        { "wrong": "kubectl run my-first-pod -image=nginx", "feedback": "image는 긴 단어 옵션이므로 앞에 빼기 기호를 두 번(--image) 쳐야 합니다!" },
+        { "wrong": "kubectl run my-first-pod --image=ngnix", "feedback": "단골 오타! ngnix가 아니라 n-g-i-n-x (엔-지-아이-엔-엑스) 순서입니다!" },
+        { "wrong": "kubectl run myfirstpod --image=nginx", "feedback": "방 이름 단어 사이에 빼기 기호(-)를 넣어서 'my-first-pod'로 쳐보세요!" }
+      ]
+    },
+    {
+      "id": "drill-002-3",
+      "prompt": "3단계 [생존 확인]: 방금 만든 파드가 잘 켜졌는지(Running 상태인지) 다시 파드 목록을 가져와 확인해 보세요.",
+      "target_text": "kubectl get pods",
+      "anatomy": [
+        { "part": "kubectl get pods", "meaning": "지배인아, 방금 만든 파드 상태 좀 다시 표로 보여줘!", "pronunciation_tip": "큐브컨트롤 겟 파즈" }
+      ],
+      "min_typing_ms": 1000,
+      "common_typos": []
+    },
+    {
+      "id": "drill-002-4",
+      "prompt": "4단계 [돋보기 관찰]: 'my-first-pod' 방 안에서 무슨 일이 일어났는지 상세 이력서(describe)를 펼쳐 보세요!",
+      "target_text": "kubectl describe pod my-first-pod",
+      "anatomy": [
+        { "part": "kubectl", "meaning": "지배인 무전기야!", "pronunciation_tip": "큐브컨트롤" },
+        { "part": "describe", "meaning": "상세히 설명해 봐(돋보기로 보여줘)!", "pronunciation_tip": "디스크라이브" },
+        { "part": "pod", "meaning": "파드 중에서...", "pronunciation_tip": "파드" },
+        { "part": "my-first-pod", "meaning": "'my-first-pod'라는 이름의 방을!", "pronunciation_tip": "마이-퍼스트-파드" }
+      ],
+      "min_typing_ms": 2500,
+      "common_typos": [
+        { "wrong": "kubectl discribe pod my-first-pod", "feedback": "discribe가 아니라 d-e-s-c-r-i-b-e (두 번째 글자가 e) 입니다!" },
+        { "wrong": "kubectl describe my-first-pod", "feedback": "describe 뒤에는 '무슨 종류인지(pod)'를 먼저 적고 방 이름을 적어야 해요! (describe pod my-first-pod)" }
+      ]
+    }
+  ],
+  "missions": [
+    {
+      "step": 1,
+      "goal": "my-first-pod 파드가 클러스터에 생성되어 Running 상태로 돌아가고 있는지 검증한다.",
+      "hint_lv1": "kubectl run my-first-pod --image=nginx",
+      "hint_lv2": "kubectl get pods 로 확인했을 때 STATUS가 Running이어야 합니다.",
+      "answer_command": "kubectl get pods",
+      "verify_command": "kubectl get pod my-first-pod"
+    }
+  ]
+}
