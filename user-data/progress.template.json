@@ -1,0 +1,12 @@
+{
+  "user_id": "learner",
+  "started_at": "",
+  "current_track": "track-beginner-zero-to-hero",
+  "current_lab": "lab-000-orientation",
+  "typing_stats": {
+    "total_commands_typed": 0,
+    "copy_paste_warnings": 0,
+    "mastered_keywords": []
+  },
+  "completed_labs": []
+}

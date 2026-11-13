@@ -1,0 +1,50 @@
+{
+  "track_id": "track-beginner-zero-to-hero",
+  "title": "쿠버네티스 걸음마 트랙 (Zero to Hero)",
+  "target_audience": "개념도 명령어도 하나도 모르는 완전 초심자",
+  "philosophy": "복붙 금지! 모든 명령어는 의미를 이해하며 손가락으로 직접 타이핑해서 내 것으로 만든다.",
+  "modules": [
+    {
+      "order": 0,
+      "lab_id": "lab-000-orientation",
+      "title": "Step 0. 식당 비유로 이해하는 K8s & 내 첫 지휘봉(kubectl) 잡기",
+      "status": "completed",
+      "core_concepts": ["concept-container", "concept-k8s", "concept-kubectl"]
+    },
+    {
+      "order": 1,
+      "lab_id": "lab-001-cluster-check",
+      "title": "Step 1. 내 컴퓨터 속 미니 주방(클러스터) 둘러보기",
+      "status": "completed",
+      "core_concepts": ["concept-cluster", "concept-node", "cmd-kubectl-get"]
+    },
+    {
+      "order": 2,
+      "lab_id": "lab-002-first-pod",
+      "title": "Step 2. 첫 번째 1인용 주방 방(Pod) 만들고 요리사 넣기",
+      "status": "in_progress",
+      "core_concepts": ["concept-pod", "concept-image", "cmd-kubectl-run"]
+    },
+    {
+      "order": 3,
+      "lab_id": "lab-003-yaml-manifest",
+      "title": "Step 3. 말로 시키지 않고 '작업 지시서(YAML)' 직접 타이핑해서 건네주기",
+      "status": "locked",
+      "core_concepts": ["concept-manifest", "concept-declarative"]
+    },
+    {
+      "order": 4,
+      "lab_id": "lab-004-self-healing-deployment",
+      "title": "Step 4. 쓰러져도 다시 일어나는 불사신 매니저(Deployment)",
+      "status": "locked",
+      "core_concepts": ["concept-replicaset", "concept-deployment"]
+    },
+    {
+      "order": 5,
+      "lab_id": "lab-005-service-networking",
+      "title": "Step 5. 손님이 찾아올 수 있게 정문 간판(Service) 달아주기",
+      "status": "locked",
+      "core_concepts": ["concept-service", "concept-port"]
+    }
+  ]
+}

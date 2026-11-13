@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Kubernetes Concept Card Schema",
+  "description": "초보자 비유(Lv1)부터 실무 작동원리(Lv2), 심화 아키텍처(Lv3)까지 다중 레이어로 저장하는 개념 사전 규격",
+  "type": "object",
+  "required": ["id", "term_ko", "term_en", "category", "explanations"],
+  "properties": {
+    "id": { "type": "string", "description": "개념 고유 ID (예: concept-k8s)" },
+    "term_ko": { "type": "string", "description": "한국어 명칭" },
+    "term_en": { "type": "string", "description": "영어 원어 및 약어" },
+    "category": { "type": "string", "enum": ["foundation", "workload", "network", "storage", "configuration", "cli"] },
+    "explanations": {
+      "type": "object",
+      "required": ["lv1_analogy", "lv2_practical", "lv3_deep"],
+      "properties": {
+        "lv1_analogy": { "type": "string", "description": "완전 초보자를 위한 일상생활 비유" },
+        "lv2_practical": { "type": "string", "description": "실습할 때 알아야 할 실질적 역할" },
+        "lv3_deep": { "type": "string", "description": "면접/실무 아키텍처 수준의 정확한 기술적 정의" }
+      }
+    },
+    "related_concepts": { "type": "array", "items": { "type": "string" } },
+    "related_commands": { "type": "array", "items": { "type": "string" } }
+  }
+}

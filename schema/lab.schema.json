@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Kubernetes Coaching Lab Schema",
+  "description": "직접 타이핑(Muscle Memory)과 단계별 학습, 자동 채점을 지원하는 실습 모듈 데이터 규격",
+  "type": "object",
+  "required": ["id", "title", "level", "prerequisites", "concepts", "typing_drills", "missions"],
+  "properties": {
+    "id": { "type": "string", "description": "고유 실습 ID (예: lab-000-orientation)" },
+    "title": { "type": "string", "description": "실습 제목" },
+    "level": { "type": "integer", "minimum": 1, "maximum": 5, "description": "난이도 (1: 걸음마 ~ 5: 마스터)" },
+    "estimated_minutes": { "type": "integer", "description": "예상 소요 시간(분)" },
+    "prerequisites": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "선수 실습 또는 개념 ID 목록"
+    },
+    "concepts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "이 실습에서 배우는 핵심 개념 카드 ID 목록"
+    },
+    "typing_drills": {
+      "type": "array",
+      "description": "손가락 근육 기억을 위한 반복 타이핑 훈련 세트",
+      "items": {
+        "type": "object",
+        "required": ["id", "target_text", "anatomy", "min_typing_ms"],
+        "properties": {
+          "id": { "type": "string" },
+          "prompt": { "type": "string", "description": "학습자에게 보여줄 질문/상황" },
+          "target_text": { "type": "string", "description": "정확히 타이핑해야 하는 정답 문자열" },
+          "anatomy": {
+            "type": "array",
+            "description": "명령어 어절별 해부 설명",
+            "items": {
+              "type": "object",
+              "properties": {
+                "part": { "type": "string" },
+                "meaning": { "type": "string" },
+                "pronunciation_tip": { "type": "string" }
+              }
+            }
+          },
+          "min_typing_ms": {
+            "type": "integer",
+            "description": "복붙 방지용 최소 입력 소요 시간(밀리초). 이 시간보다 빨리 입력되면 복붙으로 간주"
+          },
+          "common_typos": {
+            "type": "array",
+            "description": "초보자가 자주 내는 오타와 맞춤형 교정 피드백",
+            "items": {
+              "type": "object",
+              "properties": {
+                "wrong": { "type": "string" },
+                "feedback": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "missions": {
+      "type": "array",
+      "description": "실제 클러스터에 수행하고 검증받는 실습 미션 목록",
+      "items": {
+        "type": "object",
+        "required": ["step", "goal", "hint_lv1", "hint_lv2", "verify_command"],
+        "properties": {
+          "step": { "type": "integer" },
+          "goal": { "type": "string" },
+          "hint_lv1": { "type": "string", "description": "생각을 유도하는 가벼운 힌트" },
+          "hint_lv2": { "type": "string", "description": "어순과 핵심 단어를 알려주는 구체적 힌트" },
+          "answer_command": { "type": "string", "description": "최종 정답 명령어 (DB 보관용)" },
+          "verify_command": { "type": "string", "description": "성공 여부를 판별할 PowerShell 스크립트/조건" }
+        }
+      }
+    }
+  }
+}
